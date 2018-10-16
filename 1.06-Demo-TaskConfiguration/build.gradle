@@ -12,6 +12,7 @@ we'll talk about shortly.
 
 */
 
+//就像闭包可以委托具体对象一样，整个构建脚本也会委托给一个项目对象
 project.task("myTask1")
 
 /*
@@ -26,6 +27,7 @@ task("myTask2")
 /*
 
 Because Groovy syntax is awesome, we can leave off the parentheses.
+这只是在调用函数
 
 */
 
@@ -73,6 +75,10 @@ We can also add actions to the start of the list using `doFirst`.
 */
 
 myTask4.doFirst {println "Do this first"}
+
+//使用 << 运算符或者leftShift方法，功能与doLast完全相同
+myTask4 << {println "Do this last of all"}
+myTask4.leftShift {println "Do this even more last"}
 
 /*
 
